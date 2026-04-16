@@ -17,40 +17,34 @@ export default function DashboardScreen({
   const transactions = [
     {
       merchant: 'Apple Store',
-      date: 'June 24, 2024',
+      date: 'Electronics - Today',
       amount: '-$1,299.00',
-      tag: 'SHOP',
+      tag: 'SH',
     },
     {
-      merchant: 'The Nomad Bistro',
-      date: 'June 23, 2024',
+      merchant: 'Wildseed SF',
+      date: 'Dining - Yesterday',
       amount: '-$84.50',
-      tag: 'FOOD',
+      tag: 'FD',
     },
     {
-      merchant: 'Freelance Payment',
-      date: 'June 22, 2024',
-      amount: '+$2,450.00',
+      merchant: 'Monthly Salary',
+      date: 'Income - 2 days ago',
+      amount: '+$6,400.00',
       tag: 'IN',
     },
     {
-      merchant: 'Equinox Gym',
-      date: 'June 20, 2024',
-      amount: '-$150.00',
-      tag: 'FIT',
-    },
-    {
-      merchant: 'Delta Airlines',
-      date: 'June 18, 2024',
-      amount: '-$430.20',
-      tag: 'TRIP',
+      merchant: 'Tesla Supercharge',
+      date: 'Transport - 3 days ago',
+      amount: '-$22.40',
+      tag: 'TR',
     },
   ];
 
   return (
     <View style={appStyles.screenBase}>
       <View style={[appStyles.safeHeader, { paddingTop: topInset + 4 }]}>
-        <TopBar title="FinTrack" profileUri={PROFILE_IMAGES.dashboard} />
+        <TopBar title="VITALITY" profileUri={PROFILE_IMAGES.dashboard} />
       </View>
       <ScrollView
         style={appStyles.scrollBase}
@@ -64,21 +58,21 @@ export default function DashboardScreen({
             <Text style={appStyles.overline}>TOTAL BALANCE</Text>
             <View style={appStyles.balanceRow}>
               <Text style={appStyles.balanceCurrency}>$</Text>
-              <Text style={appStyles.balanceAmount}>42,580.00</Text>
+              <Text style={appStyles.balanceAmount}>24,850.42</Text>
             </View>
-            <Text style={appStyles.growthLabel}>+2.4% vs last month</Text>
+            <Text style={appStyles.growthLabel}>+12.5% this month</Text>
           </View>
 
           <View style={appStyles.sectionHeaderRow}>
-            <Text style={appStyles.sectionTitle}>Spending Overview</Text>
-            <Text style={appStyles.overline}>JUNE 2024</Text>
+            <Text style={appStyles.sectionTitle}>Spending Flow</Text>
+            <Text style={appStyles.overline}>Monthly Breakdown</Text>
           </View>
           <View style={appStyles.overviewBlock}>
             <View style={appStyles.donutPanel}>
               <View style={appStyles.donutOuter}>
                 <View style={appStyles.donutInner}>
-                  <Text style={appStyles.donutValue}>72%</Text>
-                  <Text style={appStyles.donutCaption}>OF BUDGET</Text>
+                  <Text style={appStyles.donutValue}>$8,240</Text>
+                  <Text style={appStyles.donutCaption}>SPENT</Text>
                 </View>
               </View>
             </View>
@@ -86,21 +80,21 @@ export default function DashboardScreen({
             <View style={appStyles.progressList}>
               <ProgressRow
                 label="Housing"
-                amount="$2,100"
-                percent={0.65}
+                amount="$3,296"
+                percent={0.4}
                 color={TOKENS.primary}
               />
               <ProgressRow
                 label="Lifestyle"
-                amount="$840"
+                amount="$2,884"
                 percent={0.35}
                 color={TOKENS.primaryContainer}
               />
               <ProgressRow
-                label="Savings"
-                amount="$1,250"
-                percent={0.5}
-                color={TOKENS.muted}
+                label="Other"
+                amount="$2,060"
+                percent={0.25}
+                color={TOKENS.primaryFixed}
               />
             </View>
           </View>

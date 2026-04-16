@@ -25,7 +25,12 @@ export default function CategoryChip({
           {label.slice(0, 2).toUpperCase()}
         </Text>
       </View>
-      <Text style={[appStyles.categoryChipLabel, !active && { opacity: 0.5 }]}>
+      <Text
+        style={[
+          appStyles.categoryChipLabel,
+          !active && appStyles.categoryChipLabelMuted,
+        ]}
+      >
         {label}
       </Text>
     </View>

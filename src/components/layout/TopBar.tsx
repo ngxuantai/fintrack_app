@@ -11,11 +11,12 @@ export default function TopBar({ title, profileUri }: TopBarProps) {
   return (
     <View style={appStyles.topBar}>
       <View style={appStyles.profileRow}>
-        <Image source={{ uri: profileUri }} style={appStyles.avatar} />
+        <Text style={appStyles.settingsButtonText}>V</Text>
         <Text style={appStyles.topBarTitle}>{title}</Text>
+        <Image source={{ uri: profileUri }} style={appStyles.avatar} />
       </View>
       <Pressable style={appStyles.settingsButton}>
-        <Text style={appStyles.settingsButtonText}>SET</Text>
+        <Text style={appStyles.settingsButtonText}>N</Text>
       </Pressable>
     </View>
   );

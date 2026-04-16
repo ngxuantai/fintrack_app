@@ -20,8 +20,8 @@ export default function BottomNavigation({
     label: string;
     glyph: string;
   }> = [
-    { key: 'dashboard', label: 'Dashboard', glyph: 'D' },
-    { key: 'statistics', label: 'Stats', glyph: 'S' },
+    { key: 'dashboard', label: 'Home', glyph: 'H' },
+    { key: 'statistics', label: 'Stats', glyph: 'T' },
     { key: 'budget', label: 'Budget', glyph: 'B' },
   ];
 

@@ -41,7 +41,7 @@ export default function AddTransactionScreen({
             </Pressable>
             <Text style={appStyles.topBarTitle}>Add Transaction</Text>
           </View>
-          <Text style={appStyles.helpText}>?</Text>
+          <Text style={appStyles.helpText}>...</Text>
         </View>
       </View>
 
@@ -54,16 +54,16 @@ export default function AddTransactionScreen({
       >
         <View style={appStyles.contentPadding}>
           <View style={appStyles.centerAmount}>
-            <Text style={appStyles.overline}>AMOUNT</Text>
+            <Text style={appStyles.overline}>Amount</Text>
             <View style={appStyles.balanceRow}>
-              <Text style={appStyles.balanceCurrency}>$</Text>
               <Text style={appStyles.amountInputValue}>{amount}</Text>
+              <Text style={appStyles.balanceCurrency}>$</Text>
             </View>
           </View>
 
           <View style={appStyles.sectionHeaderRow}>
             <Text style={appStyles.sectionTitle}>Category</Text>
-            <Text style={appStyles.overline}>VIEW ALL</Text>
+            <Text style={appStyles.overline}>Swipe</Text>
           </View>
 
           <View style={appStyles.categoryChipGrid}>
@@ -74,21 +74,21 @@ export default function AddTransactionScreen({
           </View>
 
           <View style={appStyles.formGroup}>
-            <Text style={appStyles.overline}>DATE</Text>
+            <Text style={appStyles.overline}>Date</Text>
             <TextInput
               editable={false}
-              value="Today, May 24"
+              value="Today"
               style={appStyles.flatInput}
               placeholderTextColor={TOKENS.onSurfaceVariant}
             />
           </View>
 
           <View style={appStyles.formGroup}>
-            <Text style={appStyles.overline}>NOTES</Text>
+            <Text style={appStyles.overline}>Notes</Text>
             <TextInput
               value=""
               style={appStyles.flatInput}
-              placeholder="Add a description..."
+              placeholder="Add details..."
               placeholderTextColor={TOKENS.onSurfaceVariant}
             />
           </View>
@@ -109,7 +109,7 @@ export default function AddTransactionScreen({
             ))}
           </View>
           <Pressable style={appStyles.addButton} onPress={onClose}>
-            <Text style={appStyles.addButtonText}>ADD</Text>
+            <Text style={appStyles.addButtonText}>Add Expense</Text>
           </Pressable>
         </View>
       </ScrollView>
