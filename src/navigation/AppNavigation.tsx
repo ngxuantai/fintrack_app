@@ -2,11 +2,11 @@ import React, { useMemo, useState } from 'react';
 import { SafeAreaView } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { TabScreen } from '../constants/tokens';
-import AddTransactionScreen from '../screens/AddTransaction';
-import BudgetScreen from '../screens/Budget';
-import DashboardScreen from '../screens/Dashboard';
-import LoginScreen from '../screens/Login';
-import StatisticsScreen from '../screens/Statistics';
+import AddTransactionScreen from '../screens/add-transaction';
+import BudgetScreen from '../screens/budget';
+import DashboardScreen from '../screens/dashboard';
+import LoginScreen from '../screens/login';
+import StatisticsScreen from '../screens/statistics';
 import { appStyles } from '../theme/appStyles';
 import BottomNavigation from './BottomNavigation';
 
