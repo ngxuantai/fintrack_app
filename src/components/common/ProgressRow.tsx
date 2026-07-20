@@ -1,5 +1,6 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
+import { TOKENS } from '../../constants/tokens';
 import { appStyles } from '../../theme/appStyles';
 
 type ProgressRowProps = {
@@ -16,10 +17,10 @@ export default function ProgressRow({
   color,
 }: ProgressRowProps) {
   return (
-    <View style={appStyles.progressRow}>
+    <View style={styles.progressRow}>
       <View style={appStyles.rowBetween}>
-        <Text style={appStyles.progressLabel}>{label.toUpperCase()}</Text>
-        <Text style={appStyles.progressAmount}>{amount}</Text>
+        <Text style={styles.progressLabel}>{label.toUpperCase()}</Text>
+        <Text style={styles.progressAmount}>{amount}</Text>
       </View>
       <View style={appStyles.progressTrack}>
         <View
@@ -32,3 +33,24 @@ export default function ProgressRow({
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  progressRow: {
+    borderRadius: 14,
+    backgroundColor: TOKENS.surfaceLow,
+    paddingHorizontal: 14,
+    paddingVertical: 12,
+    gap: 7,
+  },
+  progressLabel: {
+    color: TOKENS.primary,
+    fontSize: 11,
+    letterSpacing: 1.6,
+    fontWeight: '700',
+  },
+  progressAmount: {
+    color: TOKENS.primary,
+    fontSize: 16,
+    fontWeight: '700',
+  },
+});

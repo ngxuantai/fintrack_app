@@ -1,8 +1,7 @@
 import React from 'react';
-import { Pressable, Text, View } from 'react-native';
+import { Pressable, StyleSheet, Text, View } from 'react-native';
 import NavItem from '../components/common/NavItem';
-import { TabScreen } from '../constants/tokens';
-import { appStyles } from '../theme/appStyles';
+import { TabScreen, TOKENS } from '../constants/tokens';
 
 type BottomNavigationProps = {
   activeScreen: TabScreen;
@@ -27,10 +26,7 @@ export default function BottomNavigation({
 
   return (
     <View
-      style={[
-        appStyles.bottomNav,
-        { paddingBottom: Math.max(bottomInset, 10) },
-      ]}
+      style={[styles.bottomNav, { paddingBottom: Math.max(bottomInset, 10) }]}
     >
       {navItems.slice(0, 2).map(item => (
         <NavItem
@@ -42,11 +38,8 @@ export default function BottomNavigation({
         />
       ))}
 
-      <Pressable
-        style={appStyles.fab}
-        onPress={() => onTabPress('add-transaction')}
-      >
-        <Text style={appStyles.fabText}>+</Text>
+      <Pressable style={styles.fab} onPress={() => onTabPress('add-transaction')}>
+        <Text style={styles.fabText}>+</Text>
       </Pressable>
 
       {navItems.slice(2).map(item => (
@@ -63,3 +56,34 @@ export default function BottomNavigation({
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  bottomNav: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    bottom: 0,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    backgroundColor: 'rgba(252,249,248,0.88)',
+    paddingTop: 10,
+    borderTopWidth: 0,
+  },
+  fab: {
+    width: 56,
+    height: 56,
+    borderRadius: 28,
+    backgroundColor: TOKENS.primary,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginTop: -24,
+  },
+  fabText: {
+    color: TOKENS.onPrimary,
+    fontSize: 30,
+    marginTop: -1,
+    lineHeight: 34,
+    fontWeight: '400',
+  },
+});

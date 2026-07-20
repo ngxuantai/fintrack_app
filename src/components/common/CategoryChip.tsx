@@ -1,6 +1,6 @@
 import React from 'react';
-import { Text, View } from 'react-native';
-import { appStyles } from '../../theme/appStyles';
+import { StyleSheet, Text, View } from 'react-native';
+import { TOKENS } from '../../constants/tokens';
 
 type CategoryChipProps = {
   label: string;
@@ -12,14 +12,12 @@ export default function CategoryChip({
   active = false,
 }: CategoryChipProps) {
   return (
-    <View style={appStyles.categoryChipWrap}>
-      <View
-        style={[appStyles.categoryChip, active && appStyles.categoryChipActive]}
-      >
+    <View style={styles.categoryChipWrap}>
+      <View style={[styles.categoryChip, active && styles.categoryChipActive]}>
         <Text
           style={[
-            appStyles.categoryChipText,
-            active && appStyles.categoryChipTextActive,
+            styles.categoryChipText,
+            active && styles.categoryChipTextActive,
           ]}
         >
           {label.slice(0, 2).toUpperCase()}
@@ -27,8 +25,8 @@ export default function CategoryChip({
       </View>
       <Text
         style={[
-          appStyles.categoryChipLabel,
-          !active && appStyles.categoryChipLabelMuted,
+          styles.categoryChipLabel,
+          !active && styles.categoryChipLabelMuted,
         ]}
       >
         {label}
@@ -36,3 +34,39 @@ export default function CategoryChip({
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  categoryChipWrap: {
+    alignItems: 'center',
+    gap: 8,
+    width: '24%',
+  },
+  categoryChip: {
+    width: 54,
+    height: 54,
+    borderRadius: 27,
+    backgroundColor: TOKENS.surfaceHighest,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  categoryChipActive: {
+    backgroundColor: TOKENS.primaryContainer,
+  },
+  categoryChipText: {
+    color: TOKENS.onBackground,
+    fontSize: 14,
+    fontWeight: '700',
+    letterSpacing: 0.8,
+  },
+  categoryChipTextActive: {
+    color: '#005027',
+  },
+  categoryChipLabel: {
+    color: TOKENS.onBackground,
+    fontSize: 11,
+    fontWeight: '600',
+  },
+  categoryChipLabelMuted: {
+    opacity: 0.5,
+  },
+});

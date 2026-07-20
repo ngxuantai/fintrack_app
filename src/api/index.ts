@@ -1,2 +1,4 @@
-// API layer placeholder for Phase 2.
-export {};
+export * from './client';
+export * from './config';
+export * from './endpoints/auth';
+export * from './errors';

@@ -6,13 +6,20 @@ import AddTransactionScreen from '../screens/add-transaction';
 import BudgetScreen from '../screens/budget';
 import DashboardScreen from '../screens/dashboard';
 import LoginScreen from '../screens/login';
+import RegisterScreen from '../screens/register';
 import StatisticsScreen from '../screens/statistics';
+import { useAuthStore } from '../store/useAuthStore';
 import { appStyles } from '../theme/appStyles';
 import BottomNavigation from './BottomNavigation';
 
+type AuthScreen = 'login' | 'register';
+
 export default function AppNavigation() {
   const insets = useSafeAreaInsets();
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const isAuthenticated = useAuthStore(
+    state => Boolean(state.user) && Boolean(state.accessToken),
+  );
+  const [authScreen, setAuthScreen] = useState<AuthScreen>('login');
   const [activeScreen, setActiveScreen] = useState<TabScreen>('dashboard');
 
   const isAddTransaction = activeScreen === 'add-transaction';
@@ -20,10 +27,18 @@ export default function AppNavigation() {
 
   const screen = useMemo(() => {
     if (!isAuthenticated) {
+      if (authScreen === 'register') {
+        return (
+          <RegisterScreen
+            topInset={insets.top}
+            onNavigateToLogin={() => setAuthScreen('login')}
+          />
+        );
+      }
       return (
         <LoginScreen
           topInset={insets.top}
-          onLogin={() => setIsAuthenticated(true)}
+          onNavigateToRegister={() => setAuthScreen('register')}
         />
       );
     }
@@ -47,7 +62,7 @@ export default function AppNavigation() {
     return (
       <DashboardScreen topInset={insets.top} bottomInset={insets.bottom} />
     );
-  }, [activeScreen, insets.bottom, insets.top, isAuthenticated]);
+  }, [activeScreen, authScreen, insets.bottom, insets.top, isAuthenticated]);
 
   return (
     <SafeAreaView style={appStyles.appRoot}>
